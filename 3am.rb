@@ -1,8 +1,8 @@
 require 'sinatra'
 
 get '/' do 
-	time = Time.now
-	hour = time.hour
+	time = Time.current
+	hour = time.hour-4
 	minute = time.min
 	#{}"The time is " + hour.inspect + ":" + minute.inspect
 
