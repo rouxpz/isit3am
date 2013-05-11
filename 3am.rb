@@ -6,7 +6,7 @@ get '/' do
 	minute = time.min
 	#{}"The time is " + hour.inspect + ":" + minute.inspect
 
-	if hour == 15
+	if hour == 3 && minute == 0
 		output = ''
 		output += <<-HTML
 		<!DOCTYPE html>
