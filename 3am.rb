@@ -59,8 +59,13 @@ get '/' do
 			hour = hour - 12
 			half = 'pm'
 		else
-			hour = hour
-			half = 'am'
+			if hour == 0
+				hour = 12
+				half = 'am'
+			else
+				hour = hour
+				half = 'am'
+			end
 		end
 		output = ''
 		output += <<-HTML
