@@ -3,8 +3,8 @@ require 'sinatra'
 set :port, 9494
 
 get '/' do 
-	utctime = Time.now
-	time = Time.local(utctime.year, utctime.month, utctime.day, utctime.hour, utctime.min)
+	utctime = Time.now.utc
+	time = utctime.getlocal
 	hour = time.hour
 	minute = time.min
 	#{}"The time is " + hour.inspect + ":" + minute.inspect
