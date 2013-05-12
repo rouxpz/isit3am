@@ -117,7 +117,7 @@ get '/about' do
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<title>who the hell is responsible for this?</title>
+		<title>what?</title>
 		<style type="text/css">
 			body{
 			font-family: Helvetica;
@@ -142,7 +142,6 @@ get '/about' do
 
 	<body>
 		<iframe width="560" height="420" src="http://www.youtube.com/embed/C-Naa1HXeDQ" frameborder="0" allowfullscreen></iframe>
-		<h3>created by <a href="http://ameliahancock.com/">amelia hancock</a> && <a href="http://rouxpz.com">roopa vasudevan</a></h3>
 		<h3>with love and apologies to matchbox 20</h3>
 	</body>
 	HTML
