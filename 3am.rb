@@ -1,7 +1,8 @@
 require 'sinatra'
 
 get '/' do 
-	time = Time.local
+	time = Time.now
+	time = Time.local(time)
 	hour = time.hour
 	minute = time.min
 	#{}"The time is " + hour.inspect + ":" + minute.inspect
