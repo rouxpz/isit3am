@@ -4,7 +4,7 @@ set :port, 9494
 
 get '/' do 
 	utctime = Time.now.utc
-	time = utctime.getlocal
+	time = utctime.getlocal("-04:00")
 	hour = time.hour
 	minute = time.min
 	#{}"The time is " + hour.inspect + ":" + minute.inspect
