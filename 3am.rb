@@ -67,6 +67,14 @@ get '/' do
 				half = 'am'
 			end
 		end
+
+		if (minute < 10)
+			minute = minute.to_s
+			minute = "0" + minute
+		else
+			minute = minute.to_s
+		end
+
 		output = ''
 		output += <<-HTML
 		<!DOCTYPE html>
@@ -104,7 +112,7 @@ get '/' do
 		</head>
 
 		<body>
-			<h1>No, it's #{hour.inspect}:#{minute.inspect} #{half}.</h1>
+			<h1>No, it's #{hour.inspect}:#{minute} #{half}.</h1>
 			<p><a href="/about">about</a></p>
 		</body>
 		HTML
