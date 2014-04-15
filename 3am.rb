@@ -40,7 +40,7 @@ get '/' do
 				}
 
 				a {
-				color: black;
+				color: #666666;
 				text-decoration: none;
 				}
 			</style>
