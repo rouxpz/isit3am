@@ -25,7 +25,7 @@ get '/' do
 
 				h1 {
 				font-size: 500%;
-				margin-left: 400px;
+				margin-left: 25%;
 				margin-top: 400px;
 				background-color: white;
 				}
@@ -35,7 +35,7 @@ get '/' do
 				background-color: white;
 				color: black;
 				text-decoration: none;
-				margin-left: 1350px;
+				margin-left: 90%;
 				margin-top: 200px;
 				}
 
@@ -90,7 +90,7 @@ get '/' do
 
 				h1 {
 				font-size: 500%;
-				margin-left: 700px;
+				margin-left: 40%;
 				margin-top: 400px;
 				background-color: white;
 				}
@@ -100,7 +100,7 @@ get '/' do
 				background-color: white;
 				color: black;
 				text-decoration: none;
-				margin-left: 1350px;
+				margin-left: 90%;
 				margin-top: 200px;
 				}
 
