@@ -52,13 +52,13 @@ get '/' do
 
 		if (t[0] === "03") {
 			console.log("lonely");
-			document.body.style.backgroundImage = "url(public/images/lonely.gif)";
+			document.body.style.backgroundImage = "url(images/lonely.gif)";
 			document.body.innerHTML = "<h1>YES.  You must be lonely.</h1><p><a href='/about'>about</a></p>";
 		} else {
 			console.log("nope");
 			var h;
 			var ampm;
-			document.body.style.backgroundImage = "url(public/images/confused.jpg)";
+			document.body.style.backgroundImage = "url(images/confused.jpg)";
 			if (t[0] > 12) {
 				h = t[0] - 12;
 				ampm = "pm";
