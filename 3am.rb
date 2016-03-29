@@ -3,120 +3,75 @@ require 'sinatra'
 set :port, 9494
 
 get '/' do 
-	utctime = Time.now.utc
-	time = utctime.getlocal("-04:00")
-	hour = time.hour
-	minute = time.min
-	#{}"The time is " + hour.inspect + ":" + minute.inspect
+	output = ''
+	output += <<-HTML
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>is it 3am?</title>
+		<style type="text/css">
+			body {
+			font-family: Helvetica;
+			background-repeat: repeat;
+			}
 
-	if hour == 3 && minute == 0
-		output = ''
-		output += <<-HTML
-		<!DOCTYPE html>
-		<html>
-		<head>
-			<title>is it 3am?</title>
-			<style type="text/css">
-				body {
-				font-family: Helvetica;
-				background-image: url("images/lonely.gif");
-				background-repeat: repeat;
-				}
+			h1 {
+			font-size: 500%;
+			margin-left: 25%;
+			margin-top: 400px;
+			padding-left: 20px;
+			padding-bottom: 5px;
+			padding-top: 5px;
+			background-color: white;
+			}
 
-				h1 {
-				font-size: 500%;
-				margin-left: 25%;
-				margin-top: 400px;
-				background-color: white;
-				}
+			p {
+			font-size: 150%;
+			background-color: white;
+			color: black;
+			text-decoration: none;
+			margin-left: 90%;
+			margin-top: 200px;
+			padding-left: 10px;
+			}
 
-				p {
-				font-size: 150%;
-				background-color: white;
-				color: black;
-				text-decoration: none;
-				margin-left: 90%;
-				margin-top: 200px;
-				}
+			a {
+			color: #666666;
+			text-decoration: none;
+			}
+		</style>
+	</head>
 
-				a {
-				color: #666666;
-				text-decoration: none;
-				}
-			</style>
-		</head>
+	<body>
 
-		<body>
+	<script>
+		var d = new Date();
+		d = d.toString().split(" ");
+		var t = d[4].split(":");
+		console.log(t);
 
-			<h1>YES.  You must be lonely.</h1>
-			<p><a href="/about">about</a></p>
+		if (t[0] === "03") {
+			console.log("lonely");
+			document.body.style.backgroundImage = "url(public/images/lonely.gif)";
+			document.body.innerHTML = "<h1>YES.  You must be lonely.</h1><p><a href='/about'>about</a></p>";
+		} else {
+			console.log("nope");
+			var h;
+			var ampm;
+			document.body.style.backgroundImage = "url(public/images/confused.jpg)";
+			if (t[0] > 12) {
+				h = t[0] - 12;
+				ampm = "pm";
+			} else {
+				h = t[0];
+				ampm = "am";
+			}
+			document.body.innerHTML = "<h1>No, it's " + h + ":" + t[1] + " " + ampm + ".</h1><p><a href='/about'>about</a></p>";
+		}
 
-		</body>
-		HTML
-
-	else
-		if (hour > 12)
-			hour = hour - 12
-			half = 'pm'
-		else
-			if hour == 0
-				hour = 12
-				half = 'am'
-			else
-				hour = hour
-				half = 'am'
-			end
-		end
-
-		if (minute < 10)
-			minute = minute.to_s
-			minute = "0" + minute
-		else
-			minute = minute.to_s
-		end
-
-		output = ''
-		output += <<-HTML
-		<!DOCTYPE html>
-		<html>
-		<head>
-			<title>is it 3am?</title>
-			<style type="text/css">
-				body {
-				font-family: Helvetica;
-				background-image: url("images/confused.jpg");
-				background-repeat: repeat;
-				}
-
-				h1 {
-				font-size: 500%;
-				margin-left: 40%;
-				margin-top: 400px;
-				background-color: white;
-				}
-
-				p {
-				font-size: 150%;
-				background-color: white;
-				color: black;
-				text-decoration: none;
-				margin-left: 90%;
-				margin-top: 200px;
-				}
-
-				a {
-				color: #666666;
-				text-decoration: none;
-				}
-			</style>
-		</head>
-
-		<body>
-			<h1>No, it's #{hour.inspect}:#{minute} #{half}.</h1>
-			<p><a href="/about">about</a></p>
-		</body>
-		HTML
-		end
+	</script>
+	</body>
+	HTML
 end
 
 get '/about' do
